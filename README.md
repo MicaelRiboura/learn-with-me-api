@@ -13,6 +13,8 @@ Projeto desenvolvido para o MVP na Sprint 1 da Pós Graduação de Engenharia de
 
 ## Executando a API
 
+
+### 1 - Clonando o repositório
 Antes de tudo, precisamos clonar o projeto para ser executado em sua máquina. Você pode clonar esse repositório fazendo o download por meio de um arquivo ZIP ou através do seguinte comando:
 
 ```
@@ -21,9 +23,13 @@ Antes de tudo, precisamos clonar o projeto para ser executado em sua máquina. V
 
 > ⚠️ Após clonar o repositório, é necessário ir ao diretório raiz do projeto, pelo terminal, para poder executar os comandos descritos abaixo.
 
-Para executar a aplicação é necessário ter todas as libs (bibliotecas) python listadas no `requirements.txt` instaladas. 
+#
+
+Para executar a aplicação é necessário ter todas as libs (bibliotecas) python listadas no arquivo `requirements.txt` instaladas. 
 
 #
+
+### 2 - Criando um ambiente virtual (opcional)
 
 Para a instalação das dependências da aplicação, é **fortemente recomendado** a criação de um ambiente virtual python. Esse ambiente tem como objetivo dar mais liberdade de utilizar diferentes bibliotecas e até versões da linguagem Python, sem que haja conflito entre elas.
 
@@ -45,14 +51,14 @@ Após criar o ambiente virtual, você pode ativá-lo a partir do seguinte comand
 
 > ⚠️ Esse é um passo opcional, mas fortemente recomendável.
 
-#
+### 3 - Instalando as dependências
 
 Para instalar as libs listadas no arquivo `requirements.txt`, execute o comando abaixo:
 
 ```
     (env)$ pip install -r requirements.txt
 ```
-
+### 4 - Executando a API
 Finalmente, para executar a API, basta executar o seguinte comando:
 
 ```
