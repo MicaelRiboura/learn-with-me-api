@@ -2,6 +2,12 @@
     <img src="./doc-images/logo.svg" height="100px">
 </p>
 
+<div align="center">
+
+![python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+
+</div>
 
 # Learn with Me - API
 
