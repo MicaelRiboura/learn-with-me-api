@@ -2,6 +2,7 @@ from flask_openapi3 import OpenAPI, Info, Tag
 from flask import redirect
 from urllib.parse import unquote
 
+from modules.shared.config.db_sqlite import Session, User, StudyTrail, Item
 from flask_cors import CORS
 
 info = Info(title="Minha API", version="1.0.0")
