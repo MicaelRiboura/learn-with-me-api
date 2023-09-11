@@ -1,6 +1,7 @@
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import relationship
 from modules.shared.config.model.base import Base
+from modules.shared.config.model.serializer import Serializer
 from modules.study_trail.models.study_trail import StudyTrail
 
 class User(Base):
@@ -18,3 +19,8 @@ class User(Base):
 
     def add_study_trail(self, study_trail: StudyTrail):
         self.study_trails.append(study_trail)
+
+    def serialize(self):
+        user = Serializer.serialize(self)
+        del user['password']
+        return user
