@@ -8,7 +8,7 @@ class User(Base):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
-    email = Column(String(250))
+    email = Column(String(250), unique=True)
     password = Column(String(250))
     study_trails = relationship('StudyTrail')
 
