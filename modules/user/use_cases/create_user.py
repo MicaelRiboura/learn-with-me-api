@@ -1,4 +1,5 @@
 from ..daos.user_dao_alchemy import UserDAO
+from sqlalchemy.exc import IntegrityError
 
 def create_user(form):
     try:

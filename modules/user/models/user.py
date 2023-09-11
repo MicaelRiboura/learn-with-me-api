@@ -8,11 +8,13 @@ class User(Base):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
+    name = Column(String(250))
     email = Column(String(250), unique=True)
     password = Column(String(250))
     study_trails = relationship('StudyTrail')
 
-    def __init__(self, email: str, password: str):
+    def __init__(self, name:str, email: str, password: str):
+        self.name = name
         self.email = email
         self.password = password
 

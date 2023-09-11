@@ -6,5 +6,6 @@ class UserSchema(BaseModel):
     """ Define como uma nova trilha de estudos a ser inserido deve ser representado
     """
 
+    name:str = "Micael"
     email:str = "micael@gmail.com"
     password:str = "123456"

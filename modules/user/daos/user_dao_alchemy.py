@@ -5,6 +5,7 @@ from modules.shared.config.db_sqlite import Session
 class UserDAO(AbstractUserDAO):
     def create(self, form):
         user = User(
+            name=form.name,
             email=form.email, 
             password=form.password
         )
