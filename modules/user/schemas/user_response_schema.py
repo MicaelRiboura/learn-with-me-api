@@ -9,5 +9,4 @@ class UserResponseSchema(BaseModel):
     id: int = 1
     name: str = "User"
     email: str = "user@gmail.com"
-    password: str = "123456"
     study_trails:List[StudyTrailSchema]
