@@ -7,5 +7,5 @@ class AbstractUserDAO(ABC):
         raise NotImplementedError
     
     @abstractmethod
-    def find_by_id(self, id):
+    def find_by_email(self, email):
         raise NotImplementedError

@@ -17,5 +17,9 @@ class UserDAO(AbstractUserDAO):
 
         return user.serialize()
     
-    def find_by_id(self, id):
-        return
+    def find_by_email(self, email):
+        session = Session()
+
+        user = session.query(User).filter(User.email == email).first()
+
+        return user
