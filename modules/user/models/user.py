@@ -22,7 +22,15 @@ class User(Base):
     def add_study_trail(self, study_trail: StudyTrail):
         self.study_trails.append(study_trail)
 
-    def serialize(self):
+    def serialize(self, has_items=False):
         user = Serializer.serialize(self)
-        del user['password']
+        user['study_trails'] = Serializer.serialize_list(user['study_trails'])
+
+        if not has_items:
+            for study_trail in user['study_trails']:
+                del study_trail['items']
+        else:
+            for study_trail in user['study_trails']:
+                study_trail['items'] = Serializer.serialize_list(study_trail['items'])
+
         return user
