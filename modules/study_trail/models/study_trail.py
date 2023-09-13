@@ -19,7 +19,7 @@ class StudyTrail(Base):
 
 
     def add_item(self, item: Item):
-        self.itens.append(item)
+        self.items.append(item)
 
     def serialize(self):
         study_trail = Serializer.serialize(self)
