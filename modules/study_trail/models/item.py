@@ -1,5 +1,6 @@
 from sqlalchemy import Column, String, Integer, ForeignKey
 from modules.shared.config.model.base import Base
+from modules.shared.config.model.serializer import Serializer
 
 class Item(Base):
     __tablename__ = 'item'
@@ -16,3 +17,7 @@ class Item(Base):
         self.type = type
         self.description = description
         self.resource = resource
+
+    def serialize(self):
+        item = Serializer.serialize(self)
+        return item
