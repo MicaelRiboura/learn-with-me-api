@@ -8,11 +8,11 @@ from flask_cors import CORS
 # schemas
 from modules.shared.errors.error_schema import ErrorSchema
 from modules.user.schemas import UserSchema, UserResponseSchema, UserLoginSchema
-from modules.study_trail.schemas import CreateStudyTrailSchema
+from modules.study_trail.schemas import CreateStudyTrailSchema, CreateItemSchema
 
 # usecases
 from modules.user.use_cases import create_user, login
-from modules.study_trail.use_cases import create_study_trail
+from modules.study_trail.use_cases import create_study_trail, create_item
 
 info = Info(title="Minha API", version="1.0.0")
 app = OpenAPI(__name__, info=info)
@@ -29,16 +29,16 @@ def home():
 
 
 # ----------------------------- Users Routes -----------------------------
-user_tag = Tag(name="Usuários", description="Criação e visualização de usuários à base de dados.")
+user_tag = Tag(name="Usuários", description="Criação e login de usuários à base de dados.")
 
-@app.post('/user/create', tags=[user_tag], responses={'200': UserResponseSchema, '409': ErrorSchema, '400': ErrorSchema})
+@app.post('/users/create', tags=[user_tag], responses={'200': UserResponseSchema, '409': ErrorSchema, '400': ErrorSchema})
 def create_user_route(form: UserSchema):
     """
         Cria novo usuário
     """
     return create_user(form)
 
-@app.post('/user/login', tags=[user_tag], responses={'200': UserResponseSchema, '400': ErrorSchema, '500': ErrorSchema})
+@app.post('/users/login', tags=[user_tag], responses={'200': UserResponseSchema, '400': ErrorSchema, '500': ErrorSchema})
 def login_route(form: UserLoginSchema):
     """
         Faz o login de um usuário com seu e-mail e senha.
@@ -55,3 +55,13 @@ def create_study_trail_route(form: CreateStudyTrailSchema):
         Cria nova trilha de estudos
     """
     return create_study_trail(form)
+
+# ----------------------------- Study Trails Routes -----------------------------
+item_tag = Tag(name="Item de Estudo", description="Adição, visualização e deleção de itens de estudo à base de dados.")
+
+@app.post('/items/create', tags=[item_tag])
+def create_item_route(form: CreateItemSchema):
+    """
+        Cria nova trilha de estudos
+    """
+    return create_item(form)
