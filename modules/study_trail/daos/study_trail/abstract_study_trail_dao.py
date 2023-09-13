@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 
 class AbstractStudyTrailDAO(ABC):
     @abstractmethod
-    def create(self, study_trail):
+    def create(self, form, user, session):
         raise NotImplementedError
 
     @abstractmethod
