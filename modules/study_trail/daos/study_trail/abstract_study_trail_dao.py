@@ -19,7 +19,7 @@ class AbstractStudyTrailDAO(ABC):
         raise NotImplementedError
     
     @abstractmethod
-    def find_one(self, id):
+    def find_by_id(self, id, session):
         raise NotImplementedError
 
     @abstractmethod

@@ -1,5 +1,4 @@
 from modules.shared.config.db_sqlite import Session
-from modules.user.models import User
 from modules.study_trail.models import StudyTrail
 from .abstract_study_trail_dao import AbstractStudyTrailDAO
 
@@ -26,8 +25,10 @@ class StudyTrailDAO(AbstractStudyTrailDAO):
     def find_by_user(self, user):
         return
     
-    def find_one(self, id):
-        return
+    def find_by_id(self, id, session):
+        study_trail = session.query(StudyTrail).filter(StudyTrail.id == id).first()
+
+        return study_trail
     
     def delete(self, id):
         return
