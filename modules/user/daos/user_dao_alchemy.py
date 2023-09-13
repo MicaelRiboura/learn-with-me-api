@@ -27,12 +27,10 @@ class UserDAO(AbstractUserDAO):
             return None
 
         user_serialized = user.serialize()
-        
+
         return user_serialized
 
-    def find_by_id(self, id):
-        session = Session()
-
+    def find_by_id(self, id, session=Session()):
         user = session.query(User).filter(User.id == id).first()
 
         return user

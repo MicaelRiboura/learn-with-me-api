@@ -4,14 +4,7 @@ from modules.study_trail.models import StudyTrail
 from .abstract_study_trail_dao import AbstractStudyTrailDAO
 
 class StudyTrailDAO(AbstractStudyTrailDAO):
-    def create(self, form):
-        session = Session()
-
-        user = session.query(User).filter(User.id == form.user_id).first()
-        
-        if not user:
-            return None
-        
+    def create(self, form, user, session = Session()):
         study_trail = StudyTrail(
             title=form.title,
             description=form.description,

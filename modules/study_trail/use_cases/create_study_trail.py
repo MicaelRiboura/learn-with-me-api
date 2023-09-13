@@ -1,17 +1,22 @@
-from modules.user.daos.user_dao_alchemy import UserDAO
+from modules.shared.config.db_sqlite import Session
 from modules.study_trail.daos.study_trail.study_trail_dao_alchemy import StudyTrailDAO 
-
-from sqlalchemy.exc import IntegrityError
+from modules.user.daos.user_dao_alchemy import UserDAO 
 
 def create_study_trail(form):
     try:
-        study_trail_dao = StudyTrailDAO()
+        session = Session()
 
-        study_trail_response = study_trail_dao.create(form)
+        user_dao = UserDAO()
 
-        if study_trail_response == None:
+        user = user_dao.find_by_id(form.user_id, session)
+
+        if not user:
             error_msg = "Usuário não encontrado!"
             return {"mesage": error_msg}, 404
+        
+        study_trail_dao = StudyTrailDAO()
+
+        study_trail_response = study_trail_dao.create(form, user, session)
         
         return study_trail_response, 200
 
