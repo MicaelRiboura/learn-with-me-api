@@ -4,16 +4,17 @@ def login(form):
     try:
         userDAO = UserDAO()
 
-        user = userDAO.find_by_email(form.email)
+        user_response = userDAO.find_by_email(form.email)
 
-        print('user: ', user)
+        print('user: ', user_response)
 
-        if not user:
+        if not user_response:
             error_msg = "Login ou senha incorretos!"
             return {"mesage": error_msg}, 400
         else:
-            if user.email == form.email and user.password == form.password:
-                return user.serialize(), 200
+            if user_response['email'] == form.email and user_response['password'] == form.password:
+                del user_response['password']
+                return user_response, 200
             else:
                 error_msg = "Login ou senha incorretos!"
                 return {"mesage": error_msg}, 400
