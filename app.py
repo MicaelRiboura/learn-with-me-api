@@ -8,7 +8,7 @@ from flask_cors import CORS
 # schemas
 from modules.shared.errors.error_schema import ErrorSchema
 from modules.user.schemas import UserSchema, UserResponseSchema, UserLoginSchema
-from modules.study_trail.schemas import CreateStudyTrailSchema, CreateItemSchema, StudyTrailResponseSchema, ItemResponseSchema
+from modules.study_trail.schemas import CreateStudyTrailSchema, CreateItemSchema, CreateStudyTrailResponseSchema, ItemResponseSchema
 
 # usecases
 from modules.user.use_cases import create_user, login
@@ -49,7 +49,7 @@ def login_route(form: UserLoginSchema):
 # ----------------------------- Study Trails Routes -----------------------------
 study_trail_tag = Tag(name="Trilha de Estudo", description="Adição, visualização e deleção de tilhas de estudo à base de dados.")
 
-@app.post('/study_trails/create', tags=[study_trail_tag], responses={'200': StudyTrailResponseSchema, '400': ErrorSchema, '404': ErrorSchema})
+@app.post('/study_trails/create', tags=[study_trail_tag], responses={'200': CreateStudyTrailResponseSchema, '400': ErrorSchema, '404': ErrorSchema})
 def create_study_trail_route(form: CreateStudyTrailSchema):
     """
         Cria nova trilha de estudos

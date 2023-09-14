@@ -12,7 +12,7 @@ class StudyTrailDAO(AbstractStudyTrailDAO):
         user.add_study_trail(study_trail)
         session.commit()
 
-        user_serialized = user.serialize(has_items=True)
+        user_serialized = user.serialize()
 
         return user_serialized['study_trails'][len(user_serialized['study_trails']) - 1]
     
