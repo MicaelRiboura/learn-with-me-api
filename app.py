@@ -8,7 +8,7 @@ from flask_cors import CORS
 # schemas
 from modules.shared.errors.error_schema import ErrorSchema
 from modules.user.schemas import UserSchema, UserResponseSchema, UserLoginSchema
-from modules.study_trail.schemas import CreateStudyTrailSchema, CreateItemSchema
+from modules.study_trail.schemas import CreateStudyTrailSchema, CreateItemSchema, StudyTrailResponseSchema, ItemResponseSchema
 
 # usecases
 from modules.user.use_cases import create_user, login
@@ -29,7 +29,7 @@ def home():
 
 
 # ----------------------------- Users Routes -----------------------------
-user_tag = Tag(name="Usuários", description="Criação e login de usuários à base de dados.")
+user_tag = Tag(name="Usuário", description="Criação e login de usuários à base de dados.")
 
 @app.post('/users/create', tags=[user_tag], responses={'200': UserResponseSchema, '409': ErrorSchema, '400': ErrorSchema})
 def create_user_route(form: UserSchema):
@@ -49,19 +49,19 @@ def login_route(form: UserLoginSchema):
 # ----------------------------- Study Trails Routes -----------------------------
 study_trail_tag = Tag(name="Trilha de Estudo", description="Adição, visualização e deleção de tilhas de estudo à base de dados.")
 
-@app.post('/study_trails/create', tags=[study_trail_tag])
+@app.post('/study_trails/create', tags=[study_trail_tag], responses={'200': StudyTrailResponseSchema, '400': ErrorSchema, '404': ErrorSchema})
 def create_study_trail_route(form: CreateStudyTrailSchema):
     """
         Cria nova trilha de estudos
     """
     return create_study_trail(form)
 
-# ----------------------------- Study Trails Routes -----------------------------
+# ----------------------------- Items Routes -----------------------------
 item_tag = Tag(name="Item de Estudo", description="Adição, visualização e deleção de itens de estudo à base de dados.")
 
-@app.post('/items/create', tags=[item_tag])
+@app.post('/items/create', tags=[item_tag], responses={'200': ItemResponseSchema, '400': ErrorSchema, '404': ErrorSchema})
 def create_item_route(form: CreateItemSchema):
     """
-        Cria nova trilha de estudos
+        Cria novo item na trilha de estudos
     """
     return create_item(form)
