@@ -8,11 +8,11 @@ from flask_cors import CORS
 # schemas
 from modules.shared.errors.error_schema import ErrorSchema
 from modules.user.schemas import UserSchema, UserResponseSchema, UserLoginSchema
-from modules.study_trail.schemas import CreateStudyTrailSchema, CreateItemSchema, CreateStudyTrailResponseSchema, ItemResponseSchema
+from modules.study_trail.schemas import CreateStudyTrailSchema, CreateItemSchema, CreateStudyTrailResponseSchema, ItemResponseSchema, ListStudyTrailsSchema, ListStudyTrailsQuerySchema
 
 # usecases
 from modules.user.use_cases import create_user, login
-from modules.study_trail.use_cases import create_study_trail, create_item
+from modules.study_trail.use_cases import create_study_trail, create_item, list_study_trails
 
 info = Info(title="Minha API", version="1.0.0")
 app = OpenAPI(__name__, info=info)
@@ -55,6 +55,13 @@ def create_study_trail_route(form: CreateStudyTrailSchema):
         Cria nova trilha de estudos
     """
     return create_study_trail(form)
+
+@app.get('/study_trails/list', tags=[study_trail_tag], responses={'200': ListStudyTrailsSchema, '500': ErrorSchema})
+def list_study_trails_route(query: ListStudyTrailsQuerySchema):
+    """
+        Lista trilhas de estudos: todas ou filtrando por titulo
+    """
+    return list_study_trails(query)
 
 # ----------------------------- Items Routes -----------------------------
 item_tag = Tag(name="Item de Estudo", description="Adição, visualização e deleção de itens de estudo à base de dados.")
