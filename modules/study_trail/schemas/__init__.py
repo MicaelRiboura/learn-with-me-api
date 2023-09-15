@@ -7,3 +7,4 @@ from .item_response_schema import ItemResponseSchema
 from .list_study_trails_schema import ListStudyTrailsSchema
 from .list_study_trail_query_schema import ListStudyTrailsQuerySchema
 from .list_study_trails_by_user_query_schema import ListStudyTrailsByUserQuerySchema
+from .get_study_trail_schema import GetStudyTrailSchema

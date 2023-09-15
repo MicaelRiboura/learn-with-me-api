@@ -23,4 +23,4 @@ def login(form):
         # erro fora do previsto
         print('error: ', e)
         error_msg = "Erro desconhecido"
-        return {"mesage": error_msg}, 500
+        return {"mesage": error_msg}, 404
