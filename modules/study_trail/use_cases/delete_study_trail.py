@@ -18,6 +18,6 @@ def delete_study_trail(query):
             
     except Exception as e:
         print('error: ', e)
-        error_msg = "Não foi possível listar as trilha de estudos!"
+        error_msg = "Não foi possível deletar a trilha de estudo!"
 
         return {"mesage": error_msg}, 404
