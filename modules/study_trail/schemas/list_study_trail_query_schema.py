@@ -1,8 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
-from .study_trail_response_schema import StudyTrailResponseSchema
 
 class ListStudyTrailsQuerySchema(BaseModel):
-    """ Define como uma listagem de produtos será retornada.
+    """ Define o que é necessário ser inserido para ser retornado a lista de trilhas de estudos.
     """
     title:Optional[str] = "JavaScript Básico"

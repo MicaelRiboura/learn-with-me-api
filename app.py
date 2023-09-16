@@ -18,7 +18,8 @@ from modules.study_trail.schemas import \
     ListStudyTrailsByUserQuerySchema, \
     StudyTrailResponseSchema, \
     GetStudyTrailSchema, \
-    DeleteItemSchema
+    DeleteItemSchema, \
+    DeleteResponseSchema
 
 # usecases
 from modules.user.use_cases import create_user, login
@@ -94,7 +95,7 @@ def get_study_trail_route(query: GetStudyTrailSchema):
     """
     return get_study_trail(query)
 
-@app.delete('/study_trails/delete', tags=[study_trail_tag], responses={'200': ErrorSchema, '404': ErrorSchema})
+@app.delete('/study_trails/delete', tags=[study_trail_tag], responses={'200': DeleteResponseSchema, '404': ErrorSchema})
 def delete_study_trail_route(query: GetStudyTrailSchema):
     """
         Remove uma trilha de estudos através de seu identificador
@@ -111,7 +112,7 @@ def create_item_route(form: CreateItemSchema):
     """
     return create_item(form)
 
-@app.delete('/items/delete', tags=[item_tag], responses={'200': ErrorSchema, '404': ErrorSchema})
+@app.delete('/items/delete', tags=[item_tag], responses={'200': DeleteResponseSchema, '404': ErrorSchema})
 def delete_item_route(query: DeleteItemSchema):
     """
         Remove um item na trilha de estudos através de seu identificador

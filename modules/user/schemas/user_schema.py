@@ -1,9 +1,7 @@
 from pydantic import BaseModel
-from typing import Optional
-from ..models import User
 
 class UserSchema(BaseModel):
-    """ Define como uma nova trilha de estudos a ser inserido deve ser representado
+    """ Define como um usuário deve ser representado
     """
 
     name:str = "Micael"

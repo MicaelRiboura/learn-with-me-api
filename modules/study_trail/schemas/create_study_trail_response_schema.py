@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 class CreateStudyTrailResponseSchema(BaseModel):
-    """ Define como uma nova trilha de estudos deve ser representada
+    """ Define como uma nova trilha de estudos criada deve ser representada
     """
     id:int = 1
     title:str = "JavaScript Básico"

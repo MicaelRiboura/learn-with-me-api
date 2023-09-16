@@ -3,7 +3,7 @@ from typing import List
 from .item_response_schema import ItemResponseSchema
 
 class StudyTrailResponseSchema(BaseModel):
-    """ Define como uma nova trilha de estudos deve ser representada
+    """ Define como uma trilha de estudos deve ser representada
     """
     id:int = 1
     title:str = "JavaScript Básico"
