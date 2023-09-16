@@ -51,4 +51,10 @@ class StudyTrailDAO(AbstractStudyTrailDAO):
         return study_trail
     
     def delete(self, id, session = Session()):
-        return
+        count = session.query(StudyTrail).filter(StudyTrail.id == id).delete()
+        session.commit()
+        
+        if not count:
+            return False
+        
+        return True
