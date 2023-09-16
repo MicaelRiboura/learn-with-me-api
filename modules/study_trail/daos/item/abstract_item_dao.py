@@ -7,13 +7,5 @@ class AbstractItemDAO(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def find_by_study_trail(self, study_trail):
-        raise NotImplementedError
-    
-    @abstractmethod
-    def find_one(self, id):
-        raise NotImplementedError
-
-    @abstractmethod
     def delete(self, id):
         raise NotImplementedError
