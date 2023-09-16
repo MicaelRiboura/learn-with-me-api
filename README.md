@@ -77,4 +77,11 @@ Em modo de desenvolvimento, é recomendado executar utilizando o parâmetro relo
     (env)$ flask run --host 0.0.0.0 --port 5000 --reload
 ```
 
+### 4 - Carregando dados iniciais no Banco de Dados
+Para carregar dados iniciais no banco de dados, execute o seguinte comando:
+
+```
+    (env)$ python load_db.py
+```
+
 > ⚠️ O símbolo *(env)$* é apenas para ilustrar um terminal com o virtualenv ativado, não pertencendo aos comandos apresentados acima.
