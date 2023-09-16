@@ -17,7 +17,8 @@ from modules.study_trail.schemas import \
     ListStudyTrailsQuerySchema, \
     ListStudyTrailsByUserQuerySchema, \
     StudyTrailResponseSchema, \
-    GetStudyTrailSchema
+    GetStudyTrailSchema, \
+    DeleteItemSchema
 
 # usecases
 from modules.user.use_cases import create_user, login
@@ -27,7 +28,8 @@ from modules.study_trail.use_cases import \
     list_study_trails, \
     list_study_trails_by_user, \
     get_study_trail, \
-    delete_study_trail
+    delete_study_trail, \
+    delete_item
 
 info = Info(title="Minha API", version="1.0.0")
 app = OpenAPI(__name__, info=info)
@@ -92,7 +94,7 @@ def get_study_trail_route(query: GetStudyTrailSchema):
     """
     return get_study_trail(query)
 
-@app.delete('/study_trails/one', tags=[study_trail_tag], responses={'200': ErrorSchema, '404': ErrorSchema})
+@app.delete('/study_trails/delete', tags=[study_trail_tag], responses={'200': ErrorSchema, '404': ErrorSchema})
 def delete_study_trail_route(query: GetStudyTrailSchema):
     """
         Remove uma trilha de estudos através de seu identificador
@@ -108,3 +110,10 @@ def create_item_route(form: CreateItemSchema):
         Cria novo item na trilha de estudos
     """
     return create_item(form)
+
+@app.delete('/items/delete', tags=[item_tag], responses={'200': ErrorSchema, '404': ErrorSchema})
+def delete_item_route(query: DeleteItemSchema):
+    """
+        Remove um item na trilha de estudos através de seu identificador
+    """
+    return delete_item(query)
