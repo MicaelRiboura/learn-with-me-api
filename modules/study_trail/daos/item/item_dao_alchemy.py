@@ -1,5 +1,4 @@
 from modules.shared.config.db_sqlite import Session
-from modules.user.models import User
 from modules.study_trail.models import Item
 from .abstract_item_dao import AbstractItemDAO
 
@@ -19,11 +18,11 @@ class ItemDAO(AbstractItemDAO):
 
         return study_trail_serialized['items'][len(study_trail_serialized['items']) - 1]
     
-    def find_by_study_trail(self, study_trail):
-        return
-    
-    def find_one(self, id):
-        return
-    
-    def delete(self, id):
-        return
+    def delete(self, id, session=Session()):
+        count = session.query(Item).filter(Item.id == id).delete()
+        session.commit()
+        
+        if not count:
+            return False
+        
+        return True
