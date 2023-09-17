@@ -7,7 +7,6 @@ from flask_cors import CORS
 
 # schemas
 from modules.shared.errors.error_schema import ErrorSchema
-from modules.user.schemas import UserSchema, UserResponseSchema, UserLoginSchema
 from modules.study_trail.schemas import \
     CreateStudyTrailSchema, \
     CreateItemSchema, \
@@ -20,6 +19,7 @@ from modules.study_trail.schemas import \
     GetStudyTrailSchema, \
     DeleteItemSchema, \
     DeleteResponseSchema
+from modules.user.schemas import UserSchema, UserResponseSchema, UserLoginSchema
 
 # usecases
 from modules.user.use_cases import create_user, login

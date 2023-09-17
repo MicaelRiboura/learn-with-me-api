@@ -1,5 +1,6 @@
 from modules.shared.config.db_sqlite import Session
 from modules.study_trail.models import StudyTrail
+from modules.user.models import User
 from .abstract_study_trail_dao import AbstractStudyTrailDAO
 
 class StudyTrailDAO(AbstractStudyTrailDAO):
@@ -18,23 +19,28 @@ class StudyTrailDAO(AbstractStudyTrailDAO):
     
     def find_all(self, session=Session()):
         study_trails = session.query(StudyTrail).all()
-        print('study_trails: ', study_trails)
 
         study_trails_serialized = []
         if study_trails:
             for study_trail in study_trails:
-                study_trails_serialized.append(study_trail.serialize())
-        
-        print('study_trails_serialized: ', study_trails_serialized)
+                study_trail_serialized = study_trail.serialize()
+                study_trail_serialized['user'] = session.query(User).filter(User.id == study_trail_serialized['user']).first().serialize()
+                del study_trail_serialized['user']['study_trails']
+                del study_trail_serialized['items']
+                study_trails_serialized.append(study_trail_serialized)
 
         return study_trails_serialized
     
     def find_by_title(self, title, session = Session()):
-        study_trails = session.query(StudyTrail).filter(StudyTrail.title == title)
+        study_trails = session.query(StudyTrail).filter(StudyTrail.title.ilike(f'%{title}%'))
         study_trails_serialized = []
         if study_trails:
             for study_trail in study_trails:
-                study_trails_serialized.append(study_trail.serialize())
+                study_trail_serialized = study_trail.serialize()
+                study_trail_serialized['user'] = session.query(User).filter(User.id == study_trail_serialized['user']).first().serialize()
+                del study_trail_serialized['user']['study_trails']
+                del study_trail_serialized['items']
+                study_trails_serialized.append(study_trail_serialized)
         return study_trails_serialized
     
     def find_by_user(self, user, session = Session()):
