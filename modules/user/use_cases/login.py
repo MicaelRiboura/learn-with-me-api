@@ -10,17 +10,17 @@ def login(form):
 
         if not user_response:
             error_msg = "Login ou senha incorretos!"
-            return {"mesage": error_msg}, 400
+            return {"message": error_msg}, 400
         else:
             if user_response['email'] == form.email and user_response['password'] == form.password:
                 del user_response['password']
                 return user_response, 200
             else:
                 error_msg = "Login ou senha incorretos!"
-                return {"mesage": error_msg}, 400
+                return {"message": error_msg}, 400
             
     except Exception as e:
         # erro fora do previsto
         print('error: ', e)
         error_msg = "Erro desconhecido"
-        return {"mesage": error_msg}, 404
+        return {"message": error_msg}, 404

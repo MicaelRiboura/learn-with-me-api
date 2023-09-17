@@ -11,13 +11,13 @@ def delete_study_trail(query):
 
         if not response:
             error_msg = "Trilha de estudo não encontrada!"
-            return {"mesage": error_msg}, 404
+            return {"message": error_msg}, 404
 
         success_msg = "Trilha de estudo removida com sucesso!"
-        return {"mesage": success_msg}, 404
+        return {"message": success_msg}, 404
             
     except Exception as e:
         print('error: ', e)
         error_msg = "Não foi possível deletar a trilha de estudo!"
 
-        return {"mesage": error_msg}, 404
+        return {"message": error_msg}, 404

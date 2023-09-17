@@ -13,7 +13,7 @@ def list_study_trails_by_user(query):
 
         if not user:
             error_msg = "Usuário não encontrado!"
-            return {"mesage": error_msg}, 404
+            return {"message": error_msg}, 404
 
         study_trails_response = study_trail_dao.find_by_user(user.id, session)
 
@@ -23,4 +23,4 @@ def list_study_trails_by_user(query):
         print('error: ', e)
         error_msg = "Não foi possível listar as trilha de estudos!"
 
-        return {"mesage": error_msg}, 404
+        return {"message": error_msg}, 404

@@ -12,7 +12,7 @@ def create_study_trail(form):
 
         if not user:
             error_msg = "Usuário não encontrado!"
-            return {"mesage": error_msg}, 404
+            return {"message": error_msg}, 404
         
         study_trail_dao = StudyTrailDAO()
 
@@ -25,4 +25,4 @@ def create_study_trail(form):
         print('error: ', e)
         error_msg = "Não foi possível salvar nova trilha de estudos!"
 
-        return {"mesage": error_msg}, 400
+        return {"message": error_msg}, 400

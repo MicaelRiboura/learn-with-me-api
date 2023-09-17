@@ -12,7 +12,7 @@ def create_item(form):
 
         if not study_trail:
             error_msg = "Trilha de estudo não encontrada!"
-            return {"mesage": error_msg}, 404
+            return {"message": error_msg}, 404
         
         item_dao = ItemDAO()
 
@@ -25,4 +25,4 @@ def create_item(form):
         print('error: ', e)
         error_msg = "Não foi possível salvar novo item na trilha de estudos!"
 
-        return {"mesage": error_msg}, 400
+        return {"message": error_msg}, 400

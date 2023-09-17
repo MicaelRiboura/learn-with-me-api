@@ -21,4 +21,4 @@ def list_study_trails(query):
         print('error: ', e)
         error_msg = "Não foi possível listar as trilha de estudos!"
 
-        return {"mesage": error_msg}, 404
+        return {"message": error_msg}, 404

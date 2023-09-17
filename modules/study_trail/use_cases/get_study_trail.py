@@ -13,7 +13,7 @@ def get_study_trail(query):
 
         if not study_trail:
             error_msg = "Trilha de estudo não encontrada!"
-            return {"mesage": error_msg}, 404
+            return {"message": error_msg}, 404
 
         study_trail_serialized = study_trail.serialize()
         study_trail_serialized['user'] = user_dao.find_by_id(study_trail_serialized['user'], session).serialize()
@@ -25,4 +25,4 @@ def get_study_trail(query):
         print('error: ', e)
         error_msg = "Não foi possível listar as trilha de estudos!"
 
-        return {"mesage": error_msg}, 404
+        return {"message": error_msg}, 404
