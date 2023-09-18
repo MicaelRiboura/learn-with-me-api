@@ -6,7 +6,7 @@ def create_user(form):
         userDAO = UserDAO()
 
         user = userDAO.create(form)
-        print('response: ', user)
+        
         return user, 200
 
     except IntegrityError as e:

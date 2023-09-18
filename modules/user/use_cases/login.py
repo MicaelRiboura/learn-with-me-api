@@ -6,8 +6,6 @@ def login(form):
 
         user_response = userDAO.find_by_email(form.email)
 
-        print('user: ', user_response)
-
         if not user_response:
             error_msg = "Login ou senha incorretos!"
             return {"message": error_msg}, 400
