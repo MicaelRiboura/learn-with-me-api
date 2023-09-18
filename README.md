@@ -24,7 +24,7 @@ Projeto desenvolvido para o MVP na Sprint 1 da Pós Graduação de Engenharia de
 Antes de tudo, precisamos clonar o projeto para ser executado em sua máquina. Você pode clonar esse repositório fazendo o download por meio de um arquivo ZIP ou através do seguinte comando:
 
 ```
-    git clone https://github.com/MicaelRiboura/learn-with-me-api.git
+git clone https://github.com/MicaelRiboura/learn-with-me-api.git
 ```
 
 > ⚠️ Após clonar o repositório, é necessário ir ao diretório raiz do projeto, pelo terminal, para poder executar os comandos descritos abaixo.
@@ -42,17 +42,17 @@ Para a instalação das dependências da aplicação, é **fortemente recomendad
 Você pode criar um  ambiente virtual a partir do seguinte comando:
 
 ```
-    python -m venv env
+python -m venv env
 ```
 
 Após criar o ambiente virtual, você pode ativá-lo a partir do seguinte comando:
 
 ```
-    # Windows:
-    .\env\Scripts\activate.ps1
+# Windows:
+.\env\Scripts\activate.ps1
 
-    # Linux ou Mac:
-    source ./python_env/bin/activate
+# Linux ou Mac:
+source ./python_env/bin/activate
 ```
 
 > ⚠️ Esse é um passo opcional, mas fortemente recomendável.
@@ -62,26 +62,32 @@ Após criar o ambiente virtual, você pode ativá-lo a partir do seguinte comand
 Para instalar as libs listadas no arquivo `requirements.txt`, execute o comando abaixo:
 
 ```
-    (env)$ pip install -r requirements.txt
+(env)$ pip install -r requirements.txt
 ```
 ### 4 - Executando a API
 Finalmente, para executar a API, basta executar o seguinte comando:
 
 ```
-    (env)$ flask run --host 0.0.0.0 --port 5000
+(env)$ flask run --host 0.0.0.0 --port 5000
 ```
 
 Em modo de desenvolvimento, é recomendado executar utilizando o parâmetro reload, que reiniciará o servidor automaticamente após uma mudança no código fonte, conforme abaixo:
 
 ```
-    (env)$ flask run --host 0.0.0.0 --port 5000 --reload
+(env)$ flask run --host 0.0.0.0 --port 5000 --reload
 ```
 
 ### 4 - Carregando dados iniciais no Banco de Dados
 Para carregar dados iniciais no banco de dados, execute o seguinte comando:
 
 ```
-    (env)$ python load_db.py
+(env)$ python load_db.py
+```
+
+Ao final, cole esse endereço no seu navegador para visualizar a documentação da API e suas rotas:
+
+```
+localhost:5000
 ```
 
 > ⚠️ O símbolo *(env)$* é apenas para ilustrar um terminal com o virtualenv ativado, não pertencendo aos comandos apresentados acima.
