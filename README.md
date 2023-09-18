@@ -17,6 +17,8 @@ Compartilhe seus estudos e aprenda com outras pessoas.
 
 Projeto desenvolvido para o MVP na Sprint 1 da Pós Graduação de Engenharia de Software da PUC-Rio.
 
+> ⚠️ Para a utilização dessa API em uma aplicação front-end, você pode acessar o repositório da App desse projeto [clicando aqui](https://github.com/MicaelRiboura/learn-with-me-frontend).
+
 ## Executando a API
 
 
@@ -77,7 +79,7 @@ Em modo de desenvolvimento, é recomendado executar utilizando o parâmetro relo
 (env)$ flask run --host 0.0.0.0 --port 5000 --reload
 ```
 
-### 4 - Carregando dados iniciais no Banco de Dados
+### 5 - Carregando dados iniciais no Banco de Dados
 Para carregar dados iniciais no banco de dados, execute o seguinte comando:
 
 ```
